@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TutorConnect - Find Your Perfect Tutor</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <h2><i class="fas fa-graduation-cap"></i> TutorConnect</h2>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="#home" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#subjects" class="nav-link">Subjects</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#tutors" class="nav-link">Find Tutors</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#become-tutor" class="nav-link">Become a Tutor</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#tutor-dashboard" class="nav-link">Tutor Dashboard</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#contact" class="nav-link">Contact</a>
+                </li>
+            </ul>
+            <div class="nav-buttons">
+                <button class="btn btn-outline" onclick="openModal('login')">Login</button>
+                <button class="btn btn-primary" onclick="openModal('signup')">Sign Up</button>
+            </div>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1 class="hero-title">Find Your Perfect Tutor</h1>
+                <p class="hero-subtitle">Connect with qualified tutors for personalized learning experiences. Whether you're a student seeking help or an expert wanting to teach, we've got you covered.</p>
+                <div class="hero-buttons">
+                    <button class="btn btn-primary" onclick="scrollToSection('tutors')">Find a Tutor</button>
+                    <button class="btn btn-secondary" onclick="scrollToSection('become-tutor')">Become a Tutor</button>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="hero-graphic">
+                    <i class="fas fa-users"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Subjects Section -->
+    <section id="subjects" class="subjects">
+        <div class="container">
+            <h2 class="section-title">Popular Subjects</h2>
+            <div class="subjects-grid">
+                <div class="subject-card">
+                    <div class="subject-icon">
+                        <i class="fas fa-calculator"></i>
+                    </div>
+                    <h3>Mathematics</h3>
+                    <p>Algebra, Calculus, Geometry, Statistics</p>
+                </div>
+                <div class="subject-card">
+                    <div class="subject-icon">
+                        <i class="fas fa-flask"></i>
+                    </div>
+                    <h3>Science</h3>
+                    <p>Physics, Chemistry, Biology, Environmental Science</p>
+                </div>
+                <div class="subject-card">
+                    <div class="subject-icon">
+                        <i class="fas fa-language"></i>
+                    </div>
+                    <h3>Languages</h3>
+                    <p>English, Spanish, French, German, Chinese</p>
+                </div>
+                <div class="subject-card">
+                    <div class="subject-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3>Computer Science</h3>
+                    <p>Programming, Web Development, Data Science</p>
+                </div>
+                <div class="subject-card">
+                    <div class="subject-icon">
+                        <i class="fas fa-book"></i>
+                    </div>
+                    <h3>Literature</h3>
+                    <p>Reading, Writing, Essay Writing, Creative Writing</p>
+                </div>
+                <div class="subject-card">
+                    <div class="subject-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Business</h3>
+                    <p>Economics, Finance, Marketing, Management</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Tutors Section -->
+    <section id="tutors" class="tutors">
+        <div class="container">
+            <h2 class="section-title">Featured Tutors</h2>
+            <div class="search-filters">
+                <div class="search-box">
+                    <input type="text" placeholder="Search by subject, tutor name, or location..." id="tutorSearch">
+                    <i class="fas fa-search"></i>
+                </div>
+                <div class="filter-buttons">
+                    <button class="filter-btn active" data-filter="all">All</button>
+                    <button class="filter-btn" data-filter="math">Math</button>
+                    <button class="filter-btn" data-filter="science">Science</button>
+                    <button class="filter-btn" data-filter="languages">Languages</button>
+                    <button class="filter-btn" data-filter="cs">Computer Science</button>
+                </div>
+            </div>
+            <div class="tutors-grid" id="tutorsGrid">
+                <!-- Tutor cards will be rendered here by JS -->
+            </div>
+            <div class="view-more">
+                <button class="btn btn-secondary">View All Tutors</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tutor Dashboard Section -->
+    <section id="tutor-dashboard" class="tutor-dashboard">
+        <div class="container">
+            <h2 class="section-title">Tutor Dashboard</h2>
+            <div id="tutorProfileContainer">
+                <!-- Tutor profile form or profile display will be rendered here by JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Become a Tutor Section -->
+    <section id="become-tutor" class="become-tutor">
+        <div class="container">
+            <div class="become-tutor-content">
+                <div class="become-tutor-text">
+                    <h2>Share Your Knowledge, Earn Money</h2>
+                    <p>Join our community of expert tutors and help students achieve their academic goals while earning a competitive income.</p>
+                    <div class="benefits">
+                        <div class="benefit-item">
+                            <i class="fas fa-dollar-sign"></i>
+                            <div>
+                                <h4>Competitive Pay</h4>
+                                <p>Earn based on your expertise</p>
+                            </div>
+                        </div>
+                        <div class="benefit-item">
+                            <i class="fas fa-clock"></i>
+                            <div>
+                                <h4>Flexible Schedule</h4>
+                                <p>Set your own hours and work from anywhere</p>
+                            </div>
+                        </div>
+                        <div class="benefit-item">
+                            <i class="fas fa-users"></i>
+                            <div>
+                                <h4>Build Your Network</h4>
+                                <p>Connect with students and grow your reputation</p>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="btn btn-primary" onclick="openModal('tutor-signup')">Apply to Become a Tutor</button>
+                </div>
+                <div class="become-tutor-image">
+                    <div class="tutor-application-graphic">
+                        <i class="fas fa-chalkboard-teacher"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section class="how-it-works">
+        <div class="container">
+            <h2 class="section-title">How It Works</h2>
+            <div class="steps-grid">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-icon">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <h3>Find Your Tutor</h3>
+                    <p>Browse our extensive database of qualified tutors by subject, location, or rating.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div class="step-icon">
+                        <i class="fas fa-calendar-check"></i>
+                    </div>
+                    <h3>Book a Session</h3>
+                    <p>Schedule a session at a time that works for you, either online or in-person.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-icon">
+                        <i class="fas fa-video"></i>
+                    </div>
+                    <h3>Learn & Grow</h3>
+                    <p>Connect with your tutor through our secure platform and start learning.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Get In Touch</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <p>support@tutorconnect.com</p>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <p>+1 (555) 123-4567</p>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <p>123 Education Street, Learning City, LC 12345</p>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-clock"></i>
+                        <p>Mon-Fri: 9AM-6PM EST</p>
+                    </div>
+                </div>
+                <form class="contact-form">
+                    <div class="form-group">
+                        <input type="text" placeholder="Your Name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" placeholder="Your Email" required>
+                    </div>
+                    <div class="form-group">
+                        <select required>
+                            <option value="">Select Inquiry Type</option>
+                            <option value="student">Student Support</option>
+                            <option value="tutor">Tutor Application</option>
+                            <option value="general">General Question</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <textarea placeholder="Your Message" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3><i class="fas fa-graduation-cap"></i> TutorConnect</h3>
+                    <p>Connecting students with expert tutors for personalized learning experiences since 2020.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>For Students</h4>
+                    <ul>
+                        <li><a href="#tutors">Find a Tutor</a></li>
+                        <li><a href="#subjects">Browse Subjects</a></li>
+                        <li><a href="#">How It Works</a></li>
+                        <li><a href="#">Student Resources</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>For Tutors</h4>
+                    <ul>
+                        <li><a href="#become-tutor">Become a Tutor</a></li>
+                        <li><a href="#">Tutor Resources</a></li>
+                        <li><a href="#">Success Stories</a></li>
+                        <li><a href="#tutor-dashboard">Tutor Dashboard</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Follow Us</h4>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 TutorConnect. All rights reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Login Modal -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('login')">&times;</span>
+            <h2>Login to TutorConnect</h2>
+            <form class="modal-form">
+                <div class="form-group">
+                    <input type="email" placeholder="Email" required>
+                </div>
+                <div class="form-group">
+                    <input type="password" placeholder="Password" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Login</button>
+            </form>
+            <p class="modal-footer">Don't have an account? <a href="#" onclick="switchModal('login', 'signup')">Sign up</a></p>
+        </div>
+    </div>
+
+    <!-- Signup Modal -->
+    <div id="signupModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('signup')">&times;</span>
+            <h2>Join TutorConnect</h2>
+            <form class="modal-form">
+                <div class="form-group">
+                    <input type="text" placeholder="Full Name" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" placeholder="Email" required>
+                </div>
+                <div class="form-group">
+                    <input type="password" placeholder="Password" required>
+                </div>
+                <div class="form-group">
+                    <select required>
+                        <option value="">I am a...</option>
+                        <option value="student">Student</option>
+                        <option value="tutor">Tutor</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-primary">Create Account</button>
+            </form>
+            <p class="modal-footer">Already have an account? <a href="#" onclick="switchModal('signup', 'login')">Login</a></p>
+        </div>
+    </div>
+
+    <!-- Tutor Signup Modal -->
+    <div id="tutorSignupModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('tutor-signup')">&times;</span>
+            <h2>Apply to Become a Tutor</h2>
+            <form class="modal-form">
+                <div class="form-group">
+                    <input type="text" placeholder="Full Name" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" placeholder="Email" required>
+                </div>
+                <div class="form-group">
+                    <select required>
+                        <option value="">Select Your Expertise</option>
+                        <option value="math">Mathematics</option>
+                        <option value="science">Science</option>
+                        <option value="languages">Languages</option>
+                        <option value="cs">Computer Science</option>
+                        <option value="literature">Literature</option>
+                        <option value="business">Business</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <input type="text" placeholder="Years of Experience" required>
+                </div>
+                <div class="form-group">
+                    <textarea placeholder="Tell us about your teaching experience..." rows="4" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit Application</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html> 
